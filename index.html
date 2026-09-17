@@ -1457,6 +1457,12 @@
             color: #d0d5dd;
         }
 
+
+        body.dark .feedback-form-wrap {
+            background: #111827;
+            border-color: #243041;
+        }
+
         body.dark .contact-form {
             background: #111827;
         }
@@ -1570,7 +1576,27 @@
 
         }
 
+
         @media (max-width: 600px) {
+
+            .feedback-form-wrap {
+                padding: 22px 18px;
+                margin-top: 32px;
+            }
+
+            .feedback-form-heading h3 {
+                font-size: 21px;
+            }
+
+            .feedback-form-heading p {
+                font-size: 12px;
+            }
+
+            .feedback-card {
+                padding: 28px 18px;
+            }
+
+
 
             section {
                 padding: 75px 0;
@@ -1664,6 +1690,8 @@
             .feedback-card blockquote {
                 font-size: 14px;
             }
+
+        }
 
             .form-row {
                 grid-template-columns: 1fr;
@@ -3999,6 +4027,475 @@ body {
     }
 }
 
+
+/* =========================================================
+   FINAL FEEDBACK SECTION — CLEAN / PROFESSIONAL
+   ========================================================= */
+
+.feedback {
+    background: #0b1220 !important;
+    padding: 92px 0 96px !important;
+}
+
+.feedback .container {
+    width: min(1180px, 90%) !important;
+    margin: 0 auto !important;
+}
+
+.feedback-heading {
+    margin-bottom: 38px !important;
+}
+
+.feedback-heading .tag {
+    display: inline-block !important;
+    color: #60a5fa !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.3px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 6px !important;
+}
+
+.feedback-heading h2 {
+    color: #f8fafc !important;
+    margin: 0 0 10px !important;
+    font-size: clamp(32px, 4vw, 48px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -1.7px !important;
+}
+
+.feedback-heading p {
+    color: #98a2b3 !important;
+    font-size: 14px !important;
+    max-width: 680px !important;
+    line-height: 1.65 !important;
+}
+
+.feedback-container {
+    width: 100% !important;
+    max-width: 1060px !important;
+    margin: 0 auto !important;
+}
+
+.feedback-slider {
+    width: 100% !important;
+    overflow: hidden !important;
+    border-radius: 24px !important;
+}
+
+.feedback-track {
+    display: flex !important;
+    width: 100% !important;
+    transition: transform .45s ease !important;
+}
+
+.feedback-card {
+    flex: 0 0 100% !important;
+    min-width: 100% !important;
+    min-height: 300px !important;
+    padding: 44px 55px !important;
+    background: #111827 !important;
+    border: 1px solid #243041 !important;
+    border-radius: 24px !important;
+    box-shadow: 0 18px 50px rgba(0,0,0,.18) !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.feedback-card .quote-icon {
+    width: 62px !important;
+    height: 62px !important;
+    flex: 0 0 62px !important;
+    margin: 0 auto 25px !important;
+    background: #eaf3ff !important;
+    color: #1976d2 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+}
+
+.feedback-card blockquote {
+    max-width: 900px !important;
+    margin: 0 auto 25px !important;
+    color: #dce5f2 !important;
+    font-size: clamp(16px, 1.65vw, 20px) !important;
+    line-height: 1.65 !important;
+    font-weight: 500 !important;
+}
+
+.feedback-card .person {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 13px !important;
+}
+
+.feedback-card .avatar {
+    width: 48px !important;
+    height: 48px !important;
+    flex: 0 0 48px !important;
+    background: #1976d2 !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+}
+
+.feedback-card .person-info {
+    text-align: left !important;
+}
+
+.feedback-card .person-info strong {
+    display: block !important;
+    color: #f8fafc !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+}
+
+.feedback-card .person-info span {
+    display: block !important;
+    color: #8ea2bb !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    margin-top: 2px !important;
+}
+
+.feedback-loading,
+.feedback-empty {
+    min-height: 300px !important;
+}
+
+.feedback-status {
+    color: #64748b !important;
+    font-size: 11px !important;
+    text-align: center !important;
+    margin-top: 12px !important;
+}
+
+.feedback-container .slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.feedback-container .slider-btn {
+    width: 40px !important;
+    height: 40px !important;
+    border: 1px solid #2d3949 !important;
+    background: #111827 !important;
+    color: #cbd5e1 !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    transition: .25s ease !important;
+}
+
+.feedback-container .slider-btn:hover {
+    background: #1976d2 !important;
+    color: #fff !important;
+    border-color: #1976d2 !important;
+    transform: translateY(-2px);
+}
+
+/* Feedback form card */
+.feedback-form-wrap {
+    width: 100% !important;
+    max-width: 1060px !important;
+    margin: 26px auto 0 !important;
+    padding: 34px 38px 36px !important;
+    background: #111827 !important;
+    border: 1px solid #243041 !important;
+    border-radius: 24px !important;
+    box-shadow: 0 18px 50px rgba(0,0,0,.14) !important;
+}
+
+.feedback-form-heading {
+    margin-bottom: 25px !important;
+    text-align: left !important;
+}
+
+.feedback-form-tag {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #60a5fa !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    letter-spacing: .9px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 8px !important;
+}
+
+.feedback-form-tag i {
+    font-size: 12px !important;
+}
+
+.feedback-form-heading h3 {
+    color: #f8fafc !important;
+    font-size: 25px !important;
+    line-height: 1.25 !important;
+    margin: 0 0 7px !important;
+}
+
+.feedback-form-heading p {
+    max-width: 800px !important;
+    color: #98a2b3 !important;
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+}
+
+.feedback-form {
+    width: 100% !important;
+}
+
+.feedback-form .form-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+}
+
+.feedback-form .form-group {
+    position: relative !important;
+    margin-bottom: 16px !important;
+}
+
+.feedback-form .form-group label {
+    display: block !important;
+    color: #e5e7eb !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    margin-bottom: 7px !important;
+}
+
+.feedback-form .form-group input,
+.feedback-form .form-group textarea {
+    width: 100% !important;
+    border: 1px solid #2a3647 !important;
+    background: #0b1220 !important;
+    color: #f8fafc !important;
+    border-radius: 10px !important;
+    outline: none !important;
+    font-size: 13px !important;
+    transition: .25s ease !important;
+}
+
+.feedback-form .form-group input {
+    height: 46px !important;
+    padding: 0 14px !important;
+}
+
+.feedback-form .form-group textarea {
+    min-height: 125px !important;
+    padding: 12px 14px 28px !important;
+    resize: vertical !important;
+}
+
+.feedback-form .form-group input::placeholder,
+.feedback-form .form-group textarea::placeholder {
+    color: #64748b !important;
+}
+
+.feedback-form .form-group input:focus,
+.feedback-form .form-group textarea:focus {
+    border-color: #1976d2 !important;
+    box-shadow: 0 0 0 3px rgba(25,118,210,.12) !important;
+}
+
+.feedback-form .error-message {
+    color: #60a5fa !important;
+    font-size: 10px !important;
+    margin-top: 4px !important;
+}
+
+.feedback-character-count {
+    position: absolute !important;
+    right: 12px !important;
+    bottom: 10px !important;
+    color: #64748b !important;
+    font-size: 10px !important;
+    pointer-events: none !important;
+}
+
+.feedback-form-note {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #7f8ea3 !important;
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+    margin: 2px 0 16px !important;
+}
+
+.feedback-form-note i {
+    color: #60a5fa !important;
+    font-size: 11px !important;
+}
+
+.feedback-form-success,
+.feedback-form-error {
+    display: none;
+    padding: 11px 13px !important;
+    border-radius: 9px !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 15px !important;
+}
+
+.feedback-form-success {
+    color: #6ee7b7 !important;
+    background: rgba(16,185,129,.10) !important;
+    border: 1px solid rgba(16,185,129,.18) !important;
+}
+
+.feedback-form-error {
+    color: #fca5a5 !important;
+    background: rgba(239,68,68,.08) !important;
+    border: 1px solid rgba(239,68,68,.15) !important;
+}
+
+.feedback-form .btn {
+    min-height: 45px !important;
+    padding: 11px 18px !important;
+    font-size: 12px !important;
+}
+
+.feedback-form .btn:disabled {
+    opacity: .65 !important;
+    cursor: wait !important;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    .feedback {
+        padding: 68px 0 72px !important;
+    }
+
+    .feedback .container {
+        width: calc(100% - 28px) !important;
+    }
+
+    .feedback-heading {
+        margin-bottom: 27px !important;
+    }
+
+    .feedback-heading h2 {
+        font-size: 34px !important;
+        letter-spacing: -1px !important;
+    }
+
+    .feedback-heading p {
+        font-size: 12px !important;
+    }
+
+    .feedback-card {
+        min-height: 280px !important;
+        padding: 30px 20px !important;
+        border-radius: 20px !important;
+    }
+
+    .feedback-card .quote-icon {
+        width: 54px !important;
+        height: 54px !important;
+        flex-basis: 54px !important;
+        margin-bottom: 20px !important;
+        font-size: 19px !important;
+    }
+
+    .feedback-card blockquote {
+        font-size: 14px !important;
+        line-height: 1.65 !important;
+        margin-bottom: 21px !important;
+    }
+
+    .feedback-card .person {
+        gap: 10px !important;
+    }
+
+    .feedback-card .avatar {
+        width: 43px !important;
+        height: 43px !important;
+        flex-basis: 43px !important;
+    }
+
+    .feedback-card .person-info strong {
+        font-size: 12px !important;
+    }
+
+    .feedback-card .person-info span {
+        font-size: 10px !important;
+    }
+
+    .feedback-form-wrap {
+        margin-top: 18px !important;
+        padding: 24px 18px 26px !important;
+        border-radius: 20px !important;
+    }
+
+    .feedback-form-heading {
+        margin-bottom: 20px !important;
+    }
+
+    .feedback-form-heading h3 {
+        font-size: 21px !important;
+    }
+
+    .feedback-form-heading p {
+        font-size: 11px !important;
+        line-height: 1.6 !important;
+    }
+
+    .feedback-form .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .feedback-form .form-group {
+        margin-bottom: 13px !important;
+    }
+
+    .feedback-form .form-group input {
+        height: 44px !important;
+    }
+
+    .feedback-form .form-group textarea {
+        min-height: 115px !important;
+    }
+
+    .feedback-form .btn {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .feedback .container {
+        width: calc(100% - 22px) !important;
+    }
+
+    .feedback-card {
+        padding: 26px 16px !important;
+    }
+
+    .feedback-form-wrap {
+        padding: 22px 14px 24px !important;
+    }
+
+    .feedback-heading h2 {
+        font-size: 30px !important;
+    }
+}
+
 </style>
 
 </head>
@@ -5045,72 +5542,167 @@ body {
     <!-- =========================================================
          FEEDBACK
     ========================================================== -->
-
     <section class="feedback" id="feedback">
 
         <div class="container">
 
-            <div class="section-heading reveal">
-
+            <div class="section-heading reveal feedback-heading">
                 <span class="tag">Feedback</span>
-
                 <h2>What People Say</h2>
-
                 <p>
-                    Feedback from lecturers, mentors and people
+                    Genuine feedback from lecturers, mentors and people
                     I have worked with.
                 </p>
+            </div>
+
+            <!-- Published feedback -->
+            <div class="feedback-container reveal">
+
+                <div class="feedback-slider">
+                    <div class="feedback-track" id="feedbackTrack">
+
+                        <div class="feedback-card feedback-loading">
+                            <div class="quote-icon">
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+                            </div>
+                            <blockquote>Loading feedback...</blockquote>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="slider-controls"
+                     id="feedbackControls"
+                     style="display:none;">
+
+                    <button class="slider-btn"
+                            type="button"
+                            id="prevFeedback"
+                            aria-label="Previous feedback">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <button class="slider-btn"
+                            type="button"
+                            id="nextFeedback"
+                            aria-label="Next feedback">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                </div>
+
+                <div class="feedback-status"
+                     id="feedbackStatus"
+                     aria-live="polite"></div>
 
             </div>
 
+            <!-- Leave feedback -->
+            <div class="feedback-form-wrap reveal">
 
-            <div class="feedback-container">
+                <div class="feedback-form-heading">
+                    <span class="feedback-form-tag">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        Share Your Feedback
+                    </span>
 
-                <div class="feedback-slider">
+                    <h3>I'd love to hear from you.</h3>
 
-                    <div class="feedback-track"
-                         id="feedbackTrack">
-                        <div class="feedback-card">
+                    <p>
+                        If you have worked with me, taught me, mentored me,
+                        or reviewed one of my projects, you can leave a short
+                        message below.
+                    </p>
+                </div>
 
-                            <div class="quote-icon">
+                <form class="feedback-form"
+                      id="feedbackForm"
+                      novalidate>
 
-                                <i class="fa-solid fa-comments"></i>
+                    <div class="form-row">
 
+                        <div class="form-group">
+                            <label for="feedbackName">Your Name</label>
+
+                            <input type="text"
+                                   id="feedbackName"
+                                   name="name"
+                                   placeholder="Enter your name"
+                                   maxlength="80"
+                                   autocomplete="name"
+                                   required>
+
+                            <div class="error-message"
+                                 id="feedbackNameError">
+                                Please enter your name.
                             </div>
+                        </div>
 
-                            <blockquote>
-                                “I’m continuously collecting genuine academic
-                                and project feedback as I develop my skills.”
-                            </blockquote>
+                        <div class="form-group">
+                            <label for="feedbackRole">Your Role</label>
 
-                            <div class="person">
+                            <input type="text"
+                                   id="feedbackRole"
+                                   name="role"
+                                   placeholder="e.g. Lecturer, Mentor, Colleague"
+                                   maxlength="100"
+                                   required>
 
-                                <div class="avatar">
-                                    D
-                                </div>
-
-                                <div class="person-info">
-
-                                    <strong>
-                                        Dewshi Ironika
-                                    </strong>
-
-                                    <span>
-                                        Business Information Systems Undergraduate
-                                    </span>
-
-                                </div>
-
+                            <div class="error-message"
+                                 id="feedbackRoleError">
+                                Please enter your role.
                             </div>
-
                         </div>
 
                     </div>
 
-                </div>
+                    <div class="form-group">
+                        <label for="feedbackMessage">Your Feedback</label>
 
+                        <textarea id="feedbackMessage"
+                                  name="message"
+                                  placeholder="Write your feedback..."
+                                  maxlength="500"
+                                  required></textarea>
 
+                        <div class="feedback-character-count">
+                            <span id="feedbackCharCount">0</span>/500
+                        </div>
 
+                        <div class="error-message"
+                             id="feedbackMessageError">
+                            Please enter your feedback.
+                        </div>
+                    </div>
+
+                    <div class="feedback-form-note">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>
+                            Feedback is reviewed before it is published
+                            on this website.
+                        </span>
+                    </div>
+
+                    <div class="feedback-form-success"
+                         id="feedbackSuccess">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Thank you! Your feedback has been submitted for review.
+                    </div>
+
+                    <div class="feedback-form-error"
+                         id="feedbackError">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        Something went wrong. Please try again later.
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-primary"
+                            id="feedbackSubmit">
+                        Submit Feedback
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                </form>
 
             </div>
 
@@ -5373,6 +5965,9 @@ body {
 
     </button>
 
+
+    <!-- Supabase client for the dynamic Feedback section -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <!-- =========================================================
          JAVASCRIPT
@@ -5650,61 +6245,281 @@ body {
 
 
         /* =========================================================
-           FEEDBACK SLIDER
+           DYNAMIC FEEDBACK — SUPABASE
+           1. Create the table using the supplied SQL file.
+           2. Replace the two values below with your Supabase project
+              URL and anon/public key.
+           3. Only rows with approved = true are shown publicly.
         ========================================================== */
 
-        const feedbackTrack =
-            document.getElementById("feedbackTrack");
+        const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+        const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
 
-        const feedbackCards =
-            document.querySelectorAll(".feedback-card");
-
-        const nextFeedback =
-            document.getElementById("nextFeedback");
-
-        const prevFeedback =
-            document.getElementById("prevFeedback");
-
+        let feedbackData = [];
         let feedbackIndex = 0;
 
+        const feedbackTrack = document.getElementById("feedbackTrack");
+        const feedbackControls = document.getElementById("feedbackControls");
+        const feedbackStatus = document.getElementById("feedbackStatus");
+        const feedbackForm = document.getElementById("feedbackForm");
+        const feedbackSuccess = document.getElementById("feedbackSuccess");
+        const feedbackError = document.getElementById("feedbackError");
+        const feedbackSubmit = document.getElementById("feedbackSubmit");
+        const feedbackCharCount = document.getElementById("feedbackCharCount");
+        const feedbackMessage = document.getElementById("feedbackMessage");
 
-        function updateFeedback() {
-
-            feedbackTrack.style.transform =
-                `translateX(-${feedbackIndex * 100}%)`;
-
+        function escapeHTML(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
         }
 
+        function initials(name) {
+            const parts = String(name).trim().split(/\s+/).filter(Boolean);
+            if (!parts.length) return "?";
+            if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+            return (
+                parts[0].charAt(0) +
+                parts[parts.length - 1].charAt(0)
+            ).toUpperCase();
+        }
 
-        nextFeedback.addEventListener("click", function() {
+        function renderFeedbackCards() {
 
-            feedbackIndex++;
+            if (!feedbackData.length) {
+                feedbackTrack.innerHTML = `
+                    
+                    </div>
+                `;
 
-            if (feedbackIndex >= feedbackCards.length) {
+                feedbackControls.style.display = "none";
+                feedbackStatus.textContent = "";
+                return;
+            }
 
-                feedbackIndex = 0;
+            feedbackTrack.innerHTML = feedbackData.map(function(item) {
 
+                const name = escapeHTML(item.name);
+                const role = escapeHTML(item.role || "Feedback Contributor");
+                const message = escapeHTML(item.message);
+
+                return `
+                    <div class="feedback-card">
+                        <div class="quote-icon">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+
+                        <blockquote>
+                            “${message}”
+                        </blockquote>
+
+                        <div class="person">
+                            <div class="avatar">
+                                ${initials(item.name)}
+                            </div>
+
+                            <div class="person-info">
+                                <strong>${name}</strong>
+                                <span>${role}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+
+            feedbackIndex = 0;
+
+            if (feedbackData.length > 1) {
+                feedbackControls.style.display = "flex";
+            } else {
+                feedbackControls.style.display = "none";
             }
 
             updateFeedback();
+        }
 
+        function updateFeedback() {
+            feedbackTrack.style.transform =
+                `translateX(-${feedbackIndex * 100}%)`;
+        }
+
+        const nextFeedback = document.getElementById("nextFeedback");
+        const prevFeedback = document.getElementById("prevFeedback");
+
+        nextFeedback.addEventListener("click", function() {
+
+            if (!feedbackData.length) return;
+
+            feedbackIndex++;
+
+            if (feedbackIndex >= feedbackData.length) {
+                feedbackIndex = 0;
+            }
+
+            updateFeedback();
         });
 
-
         prevFeedback.addEventListener("click", function() {
+
+            if (!feedbackData.length) return;
 
             feedbackIndex--;
 
             if (feedbackIndex < 0) {
-
-                feedbackIndex =
-                    feedbackCards.length - 1;
-
+                feedbackIndex = feedbackData.length - 1;
             }
 
             updateFeedback();
-
         });
+
+        async function loadPublishedFeedback() {
+
+            if (
+                SUPABASE_URL === "YOUR_SUPABASE_PROJECT_URL" ||
+                SUPABASE_ANON_KEY === "YOUR_SUPABASE_ANON_KEY"
+            ) {
+                // No self-written placeholder is shown.
+                // The section stays empty until real approved feedback is available.
+                feedbackTrack.innerHTML = "";
+                feedbackControls.style.display = "none";
+                feedbackStatus.textContent = "";
+                return;
+            }
+
+            try {
+
+                const { createClient } = window.supabase;
+                const supabaseClient =
+                    createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+                const { data, error } = await supabaseClient
+                    .from("portfolio_feedback")
+                    .select("id, name, role, message, created_at")
+                    .eq("approved", true)
+                    .order("created_at", { ascending: false });
+
+                if (error) {
+                    throw error;
+                }
+
+                feedbackData = data || [];
+                renderFeedbackCards();
+
+            } catch (error) {
+
+                console.error("Feedback loading error:", error);
+
+                // Keep the published-feedback area empty if loading fails.
+                feedbackTrack.innerHTML = "";
+                feedbackControls.style.display = "none";
+                feedbackStatus.textContent = "";
+            }
+        }
+
+        /* Feedback form character counter */
+        feedbackMessage.addEventListener("input", function() {
+            feedbackCharCount.textContent = feedbackMessage.value.length;
+        });
+
+        /* Feedback form validation + submission */
+        feedbackForm.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            feedbackSuccess.style.display = "none";
+            feedbackError.style.display = "none";
+
+            const nameInput = document.getElementById("feedbackName");
+            const roleInput = document.getElementById("feedbackRole");
+            const nameError = document.getElementById("feedbackNameError");
+            const roleError = document.getElementById("feedbackRoleError");
+            const messageError = document.getElementById("feedbackMessageError");
+
+            nameError.style.display = "none";
+            roleError.style.display = "none";
+            messageError.style.display = "none";
+
+            let valid = true;
+
+            if (nameInput.value.trim() === "") {
+                nameError.style.display = "block";
+                valid = false;
+            }
+
+            if (roleInput.value.trim() === "") {
+                roleError.style.display = "block";
+                valid = false;
+            }
+
+            if (feedbackMessage.value.trim() === "") {
+                messageError.style.display = "block";
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            if (
+                SUPABASE_URL === "YOUR_SUPABASE_PROJECT_URL" ||
+                SUPABASE_ANON_KEY === "YOUR_SUPABASE_ANON_KEY"
+            ) {
+                feedbackError.innerHTML =
+                    '<i class="fa-solid fa-circle-exclamation"></i>' +
+                    'Please connect the Feedback section to Supabase first.';
+                feedbackError.style.display = "block";
+                return;
+            }
+
+            const originalButtonHTML = feedbackSubmit.innerHTML;
+
+            feedbackSubmit.disabled = true;
+            feedbackSubmit.innerHTML =
+                'Submitting... <i class="fa-solid fa-spinner fa-spin"></i>';
+
+            try {
+
+                const { createClient } = window.supabase;
+                const supabaseClient =
+                    createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+                const { error } = await supabaseClient
+                    .from("portfolio_feedback")
+                    .insert([{
+                        name: nameInput.value.trim(),
+                        role: roleInput.value.trim(),
+                        message: feedbackMessage.value.trim(),
+                        approved: false
+                    }]);
+
+                if (error) {
+                    throw error;
+                }
+
+                feedbackForm.reset();
+                feedbackCharCount.textContent = "0";
+
+                feedbackSuccess.style.display = "block";
+
+            } catch (error) {
+
+                console.error("Feedback submission error:", error);
+
+                feedbackError.innerHTML =
+                    '<i class="fa-solid fa-circle-exclamation"></i>' +
+                    'Your feedback could not be submitted. Please try again.';
+
+                feedbackError.style.display = "block";
+
+            } finally {
+
+                feedbackSubmit.disabled = false;
+                feedbackSubmit.innerHTML = originalButtonHTML;
+            }
+        });
+
+        loadPublishedFeedback();
 
 
         /* =========================================================
