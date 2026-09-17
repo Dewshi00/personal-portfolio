@@ -2804,6 +2804,605 @@ header.sidebar .nav-links a i {
 header.sidebar .nav-links a.active i {
     color: #1976d2 !important;
 }
+
+
+/* =========================================================
+   FINAL RESPONSIVE PORTFOLIO LAYOUT
+   Desktop: fixed sidebar
+   Mobile: compact top bar + slide-down side menu
+   Profile image: sidebar/top bar ONLY
+   ========================================================= */
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+/* ---------- DESKTOP ---------- */
+
+@media (min-width: 851px) {
+
+    header.sidebar {
+        width: 290px;
+        height: 100vh;
+    }
+
+    .sidebar-inner {
+        padding: 34px 24px 26px;
+    }
+
+    .sidebar-profile {
+        margin-bottom: 30px;
+    }
+
+    .sidebar-profile-image {
+        width: 118px;
+        height: 118px;
+    }
+
+    header.sidebar .nav-links {
+        gap: 6px;
+    }
+
+    header.sidebar .nav-links a {
+        min-height: 48px;
+        padding: 0 15px;
+        gap: 16px;
+        font-size: 14px;
+    }
+
+    header.sidebar .nav-links a.active::before {
+        left: -24px;
+    }
+
+    body > section,
+    body > footer {
+        margin-left: 290px;
+        width: calc(100% - 290px);
+    }
+
+    .hero {
+        min-height: 390px;
+        height: auto;
+        padding: 70px 0 48px;
+    }
+
+    .hero-grid {
+        width: min(1180px, 90%);
+        max-width: 1180px;
+        margin: 0 auto;
+    }
+
+    .hero-content {
+        max-width: 1080px;
+    }
+
+    .hero h1 {
+        font-size: clamp(50px, 5vw, 70px);
+        line-height: 1;
+        letter-spacing: -2.5px;
+        margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(20px, 2vw, 26px);
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+
+    .hero-description {
+        max-width: 980px;
+        font-size: 15px;
+        line-height: 1.55;
+        margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .social-links {
+        margin-top: 16px;
+        gap: 8px;
+    }
+
+    /* Keep the profile photo exclusively in the sidebar. */
+    .hero-visual,
+    .hero-profile-card,
+    .hero-profile-image,
+    .about-photo-wrap {
+        display: none !important;
+    }
+
+    section {
+        padding: 76px 0;
+    }
+
+    .about {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .about-grid {
+        width: min(1180px, 90%);
+        margin: 0 auto;
+    }
+}
+
+/* ---------- MOBILE / TABLET ---------- */
+
+@media (max-width: 850px) {
+
+    header.sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 68px;
+        z-index: 3000;
+        border-right: none;
+        border-bottom: 1px solid #27303b;
+        background: #11161d;
+    }
+
+    .sidebar-inner {
+        height: 68px;
+        padding: 0 18px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sidebar-profile {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 10px;
+        margin: 0;
+        min-width: 0;
+    }
+
+    .sidebar-photo-link {
+        flex: 0 0 auto;
+        margin: 0;
+    }
+
+    .sidebar-profile-image {
+        display: block !important;
+        width: 42px;
+        height: 42px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #334155;
+        box-shadow: none;
+    }
+
+    .sidebar-name {
+        font-size: 15px;
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+
+    .sidebar-bio {
+        display: none;
+    }
+
+    header.sidebar .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+        padding: 0;
+        border: 0;
+        flex: 0 0 auto;
+    }
+
+    header.sidebar .theme-btn,
+    header.sidebar .menu-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        border: 1px solid #2f3947;
+        background: #1a2230;
+        color: #9aa8bb;
+    }
+
+    header.sidebar .menu-btn {
+        display: flex;
+    }
+
+    /* Compact drawer like the supplied reference image. */
+    header.sidebar .nav-links {
+        position: fixed;
+        top: 68px;
+        left: 0;
+        width: min(74vw, 330px);
+        height: calc(100vh - 68px);
+        max-height: none;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 20px 14px 24px;
+        background: #151a21;
+        border-right: 1px solid #2a313b;
+        border-bottom: none;
+        box-shadow: 18px 0 45px rgba(0, 0, 0, 0.28);
+        z-index: 3002;
+    }
+
+    header.sidebar .nav-links.open {
+        display: flex;
+    }
+
+    /* Darkens the page behind the open drawer without affecting the drawer. */
+    header.sidebar:has(.nav-links.open)::after {
+        content: "";
+        position: fixed;
+        inset: 68px 0 0 0;
+        background: rgba(0, 0, 0, 0.48);
+        z-index: 3001;
+        pointer-events: none;
+    }
+
+    header.sidebar .nav-links a {
+        width: 100%;
+        min-height: 48px;
+        padding: 0 16px;
+        border-radius: 9px;
+        gap: 16px;
+        color: #9aa8bb;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    header.sidebar .nav-links a i {
+        width: 22px;
+        font-size: 17px;
+    }
+
+    header.sidebar .nav-links a:hover,
+    header.sidebar .nav-links a.active {
+        color: #1976d2 !important;
+        background: rgba(25, 118, 210, 0.11) !important;
+    }
+
+    header.sidebar .nav-links a.active::before {
+        left: -14px;
+        width: 3px;
+        background: #1976d2 !important;
+    }
+
+    body > section,
+    body > footer {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Main content starts below the fixed mobile header. */
+    .hero {
+        width: 100%;
+        min-height: 0;
+        height: auto;
+        padding: 108px 0 52px;
+    }
+
+    .hero-grid {
+        width: min(100% - 48px, 760px);
+        max-width: 760px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: none;
+    }
+
+    .hero .eyebrow {
+        display: none !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 10vw, 52px);
+        line-height: 1.03;
+        letter-spacing: -2px;
+        margin: 0 0 12px;
+        overflow-wrap: normal;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(19px, 5.1vw, 24px);
+        line-height: 1.3;
+        margin: 0 0 12px;
+    }
+
+    .hero-description {
+        width: 100%;
+        max-width: none;
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0 0 22px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero-buttons .btn {
+        width: auto;
+        min-height: 48px;
+        padding: 12px 18px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .social-links a {
+        width: 42px;
+        height: 42px;
+    }
+
+    /* Never duplicate the profile image in the main content. */
+    .hero-visual,
+    .hero-profile-card,
+    .hero-profile-image,
+    .about-photo-wrap {
+        display: none !important;
+    }
+
+    section {
+        padding: 64px 0;
+    }
+
+    .container {
+        width: min(100% - 48px, 760px);
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(31px, 8vw, 40px);
+        line-height: 1.1;
+    }
+
+    .section-heading p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .about {
+        min-height: 0;
+        padding: 58px 0;
+    }
+
+    .about-grid {
+        width: 100%;
+        display: block;
+        margin: 0;
+    }
+
+    .about-content h3 {
+        font-size: 27px;
+        line-height: 1.2;
+        margin-bottom: 13px;
+    }
+
+    .about-content p {
+        font-size: 14px;
+        line-height: 1.65;
+        margin-bottom: 11px;
+    }
+
+    .about-info {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 16px;
+    }
+
+    .skills-grid,
+    .courses-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* ---------- SMALL PHONES ---------- */
+
+@media (max-width: 600px) {
+
+    header.sidebar {
+        height: 64px;
+    }
+
+    .sidebar-inner {
+        height: 64px;
+        padding: 0 14px;
+    }
+
+    .sidebar-profile-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .sidebar-name {
+        font-size: 14px;
+    }
+
+    header.sidebar .theme-btn,
+    header.sidebar .menu-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    header.sidebar .nav-links {
+        top: 64px;
+        width: min(78vw, 320px);
+        height: calc(100vh - 64px);
+        padding: 18px 12px 22px;
+    }
+
+    header.sidebar:has(.nav-links.open)::after {
+        inset: 64px 0 0 0;
+    }
+
+    .hero {
+        padding: 94px 0 44px;
+    }
+
+    .hero-grid {
+        width: calc(100% - 36px);
+    }
+
+    .hero h1 {
+        font-size: clamp(37px, 10.5vw, 46px);
+        letter-spacing: -1.8px;
+        margin-bottom: 11px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+        line-height: 1.28;
+        margin-bottom: 12px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.62;
+        margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+        gap: 9px;
+    }
+
+    .hero-buttons .btn {
+        min-height: 46px;
+        padding: 11px 15px;
+        font-size: 13px;
+    }
+
+    .social-links {
+        margin-top: 14px;
+    }
+
+    .social-links a {
+        width: 40px;
+        height: 40px;
+    }
+
+    section {
+        padding: 56px 0;
+    }
+
+    .container {
+        width: calc(100% - 36px);
+    }
+
+    .section-heading {
+        margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 33px;
+    }
+
+    .section-heading p {
+        font-size: 13.5px;
+    }
+
+    .about {
+        padding: 50px 0;
+    }
+
+    .about .section-heading h2 {
+        font-size: 33px;
+    }
+
+    .about-content h3 {
+        font-size: 24px;
+    }
+
+    .skills-grid,
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 210px;
+    }
+
+    .contact-form {
+        padding: 20px 16px;
+    }
+
+    .footer-content {
+        gap: 10px;
+    }
+}
+
+/* ---------- VERY SMALL PHONES ---------- */
+
+@media (max-width: 380px) {
+
+    .hero-grid,
+    .container {
+        width: calc(100% - 30px);
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .hero-buttons .btn {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .sidebar-name {
+        font-size: 13px;
+    }
+}
+
 </style>
 
 </head>
@@ -4210,6 +4809,23 @@ header.sidebar .nav-links a.active i {
 
             }
 
+        });
+
+
+        /* Close mobile menu when the darkened page area is tapped */
+        document.addEventListener("click", function (event) {
+            if (
+                window.innerWidth <= 850 &&
+                navLinks.classList.contains("open") &&
+                !navLinks.contains(event.target) &&
+                !menuBtn.contains(event.target)
+            ) {
+                navLinks.classList.remove("open");
+
+                const icon = menuBtn.querySelector("i");
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            }
         });
 
 
