@@ -3403,6 +3403,602 @@ body {
     }
 }
 
+
+
+/* =========================================================
+   FINAL MOBILE + DESKTOP RESPONSIVE POLISH
+   Goal: clean professional portfolio on phone AND laptop.
+   Mobile reference:
+   - compact top header
+   - small profile image
+   - theme + hamburger buttons
+   - slide-out navigation
+   - hero starts below header
+   - no overlapping profile image / content
+   ========================================================= */
+
+/* Global overflow protection */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* =========================
+   DESKTOP / LAPTOP
+   ========================= */
+@media (min-width: 851px) {
+
+    header.sidebar {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 290px !important;
+        height: 100vh !important;
+        z-index: 3000;
+    }
+
+    .sidebar-inner {
+        height: 100% !important;
+        padding: 34px 24px 26px !important;
+    }
+
+    .sidebar-profile {
+        text-align: center !important;
+        margin-bottom: 30px !important;
+    }
+
+    .sidebar-photo-link {
+        display: flex !important;
+        justify-content: center !important;
+        margin-bottom: 16px !important;
+    }
+
+    .sidebar-profile-image {
+        display: block !important;
+        width: 112px !important;
+        height: 112px !important;
+        object-fit: cover !important;
+        border-radius: 50% !important;
+    }
+
+    header.sidebar .nav-links {
+        display: flex !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        flex: 1 !important;
+        flex-direction: column !important;
+    }
+
+    header.sidebar .nav-actions {
+        padding-top: 16px !important;
+    }
+
+    header.sidebar .menu-btn {
+        display: none !important;
+    }
+
+    body > section,
+    body > footer {
+        margin-left: 290px !important;
+        width: calc(100% - 290px) !important;
+    }
+
+    .hero {
+        min-height: 420px !important;
+        height: auto !important;
+        padding: 72px 0 50px !important;
+    }
+
+    .hero-grid {
+        width: min(1180px, 90%) !important;
+        max-width: 1180px !important;
+        margin: 0 auto !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .hero-visual {
+        display: none !important;
+    }
+
+    .hero-content {
+        width: 100% !important;
+        max-width: 1000px !important;
+    }
+}
+
+/* =========================
+   MOBILE / TABLET
+   ========================= */
+@media (max-width: 850px) {
+
+    /* ---------- TOP HEADER ---------- */
+
+    header.sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 68px !important;
+        z-index: 5000 !important;
+        background: #151a21 !important;
+        border: 0 !important;
+        border-bottom: 1px solid #2a313b !important;
+    }
+
+    .sidebar-inner {
+        width: 100% !important;
+        height: 68px !important;
+        padding: 0 16px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    /* Profile is SMALL and belongs only in the mobile header */
+    .sidebar-profile {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 10px !important;
+        margin: 0 !important;
+        min-width: 0 !important;
+        text-align: left !important;
+    }
+
+    .sidebar-photo-link {
+        display: flex !important;
+        flex: 0 0 auto !important;
+        width: 40px !important;
+        height: 40px !important;
+        margin: 0 !important;
+    }
+
+    .sidebar-profile-image {
+        display: block !important;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+        object-fit: cover !important;
+        border-radius: 50% !important;
+        border: 2px solid #364152 !important;
+        box-shadow: none !important;
+    }
+
+    .sidebar-name {
+        display: block !important;
+        margin: 0 !important;
+        color: #f8fafc !important;
+        font-size: 15px !important;
+        line-height: 1.12 !important;
+        white-space: nowrap !important;
+    }
+
+    .sidebar-bio {
+        display: none !important;
+    }
+
+    /* ---------- HEADER BUTTONS ---------- */
+
+    header.sidebar .nav-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin-left: auto !important;
+        padding: 0 !important;
+        border: 0 !important;
+        flex: 0 0 auto !important;
+    }
+
+    header.sidebar .theme-btn,
+    header.sidebar .menu-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 42px !important;
+        height: 42px !important;
+        flex: 0 0 42px !important;
+        border-radius: 10px !important;
+        border: 1px solid #303a49 !important;
+        background: #1b222c !important;
+        color: #aeb8c7 !important;
+        cursor: pointer !important;
+    }
+
+    header.sidebar .theme-btn:hover,
+    header.sidebar .menu-btn:hover {
+        background: #1976d2 !important;
+        border-color: #1976d2 !important;
+        color: #fff !important;
+    }
+
+    /* ---------- MOBILE NAV DRAWER ---------- */
+
+    header.sidebar .nav-links {
+        position: fixed !important;
+        top: 68px !important;
+        left: 0 !important;
+        width: min(72vw, 330px) !important;
+        height: calc(100vh - 68px) !important;
+        max-height: none !important;
+        overflow-y: auto !important;
+        display: none !important;
+        flex-direction: column !important;
+        gap: 4px !important;
+        padding: 20px 14px 26px !important;
+        background: #151a21 !important;
+        border: 0 !important;
+        border-right: 1px solid #2a313b !important;
+        box-shadow: 18px 0 45px rgba(0,0,0,.30) !important;
+        z-index: 5002 !important;
+    }
+
+    header.sidebar .nav-links.open {
+        display: flex !important;
+    }
+
+    header.sidebar .nav-links a {
+        width: 100% !important;
+        min-height: 48px !important;
+        padding: 0 16px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 16px !important;
+        border-radius: 8px !important;
+        color: #98a2b3 !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+    }
+
+    header.sidebar .nav-links a i {
+        width: 22px !important;
+        text-align: center !important;
+        font-size: 17px !important;
+    }
+
+    header.sidebar .nav-links a::after {
+        display: none !important;
+    }
+
+    header.sidebar .nav-links a:hover,
+    header.sidebar .nav-links a.active {
+        color: #1976d2 !important;
+        background: rgba(25,118,210,.10) !important;
+    }
+
+    header.sidebar .nav-links a.active::before {
+        left: -14px !important;
+        width: 3px !important;
+        background: #1976d2 !important;
+    }
+
+    /* ---------- DARK PAGE OVERLAY WHEN MENU IS OPEN ---------- */
+
+    header.sidebar .nav-links.open::after {
+        content: "" !important;
+        position: fixed !important;
+        top: 68px !important;
+        left: min(72vw, 330px) !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: rgba(0,0,0,.50) !important;
+        pointer-events: none !important;
+        z-index: -1 !important;
+    }
+
+    /* ---------- MAIN CONTENT ---------- */
+
+    body > section,
+    body > footer {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .hero {
+        width: 100% !important;
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 98px 0 48px !important;
+        display: flex !important;
+        align-items: flex-start !important;
+    }
+
+    .hero-grid {
+        width: min(100% - 40px, 760px) !important;
+        max-width: 760px !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+    .hero-content {
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    /* No desktop illustration/profile card on mobile */
+    .hero-visual,
+    .hero-profile-card,
+    .hero-profile-image,
+    .about-photo-wrap {
+        display: none !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 9.8vw, 50px) !important;
+        line-height: 1.06 !important;
+        letter-spacing: -1.8px !important;
+        margin-bottom: 12px !important;
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(19px, 5vw, 24px) !important;
+        line-height: 1.32 !important;
+        margin-bottom: 12px !important;
+    }
+
+    .hero-description {
+        width: 100% !important;
+        max-width: none !important;
+        font-size: 15px !important;
+        line-height: 1.62 !important;
+        margin-bottom: 22px !important;
+    }
+
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+    }
+
+    .hero-buttons .btn {
+        width: auto !important;
+        min-height: 48px !important;
+        padding: 12px 17px !important;
+        white-space: nowrap !important;
+    }
+
+    .social-links {
+        display: flex !important;
+        gap: 8px !important;
+        margin-top: 16px !important;
+    }
+
+    .social-links a {
+        width: 42px !important;
+        height: 42px !important;
+        flex: 0 0 42px !important;
+    }
+
+    /* Sections: comfortable mobile spacing */
+    section {
+        padding: 64px 0 !important;
+    }
+
+    .container {
+        width: min(100% - 40px, 760px) !important;
+        max-width: 760px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .section-heading {
+        margin-bottom: 30px !important;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(31px, 8vw, 40px) !important;
+        line-height: 1.12 !important;
+    }
+
+    .section-heading p {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+    }
+
+    .about {
+        min-height: 0 !important;
+        padding: 60px 0 !important;
+    }
+
+    .about-grid {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .about-content h3 {
+        font-size: 27px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 13px !important;
+    }
+
+    .about-content p {
+        font-size: 14px !important;
+        line-height: 1.65 !important;
+        margin-bottom: 11px !important;
+    }
+
+    .about-info {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        margin-top: 16px !important;
+    }
+
+    .skills-grid,
+    .courses-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .footer-content {
+        gap: 10px !important;
+    }
+}
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+@media (max-width: 600px) {
+
+    header.sidebar {
+        height: 64px !important;
+    }
+
+    .sidebar-inner {
+        height: 64px !important;
+        padding: 0 13px !important;
+    }
+
+    .sidebar-photo-link,
+    .sidebar-profile-image {
+        width: 39px !important;
+        height: 39px !important;
+        min-width: 39px !important;
+        min-height: 39px !important;
+    }
+
+    .sidebar-name {
+        font-size: 14px !important;
+    }
+
+    header.sidebar .theme-btn,
+    header.sidebar .menu-btn {
+        width: 40px !important;
+        height: 40px !important;
+        flex-basis: 40px !important;
+    }
+
+    header.sidebar .nav-links {
+        top: 64px !important;
+        width: min(76vw, 320px) !important;
+        height: calc(100vh - 64px) !important;
+        padding: 18px 12px 24px !important;
+    }
+
+    header.sidebar .nav-links a {
+        min-height: 47px !important;
+        font-size: 14px !important;
+    }
+
+    .hero {
+        padding: 94px 0 44px !important;
+    }
+
+    .hero-grid {
+        width: calc(100% - 34px) !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 10.5vw, 45px) !important;
+        letter-spacing: -1.7px !important;
+    }
+
+    .hero-subtitle {
+        font-size: 19px !important;
+    }
+
+    .hero-description {
+        font-size: 14px !important;
+        line-height: 1.65 !important;
+    }
+
+    .hero-buttons {
+        gap: 9px !important;
+    }
+
+    .hero-buttons .btn {
+        min-height: 46px !important;
+        padding: 11px 14px !important;
+        font-size: 13px !important;
+    }
+
+    .social-links {
+        margin-top: 14px !important;
+    }
+
+    .social-links a {
+        width: 40px !important;
+        height: 40px !important;
+        flex-basis: 40px !important;
+    }
+
+    section {
+        padding: 56px 0 !important;
+    }
+
+    .container {
+        width: calc(100% - 34px) !important;
+    }
+
+    .about {
+        padding: 52px 0 !important;
+    }
+
+    .about-content h3 {
+        font-size: 24px !important;
+    }
+
+    .skills-grid,
+    .courses-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .project-image {
+        height: 210px !important;
+    }
+
+    .contact-form {
+        padding: 20px 16px !important;
+    }
+}
+
+/* =========================
+   VERY SMALL PHONES
+   ========================= */
+@media (max-width: 380px) {
+
+    .hero-grid,
+    .container {
+        width: calc(100% - 28px) !important;
+    }
+
+    .hero h1 {
+        font-size: 34px !important;
+    }
+
+    .hero-subtitle {
+        font-size: 18px !important;
+    }
+
+    .hero-buttons .btn {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+}
+
 </style>
 
 </head>
@@ -4813,6 +5409,23 @@ body {
 
 
         /* Close mobile menu when the darkened page area is tapped */
+        document.addEventListener("click", function (event) {
+            if (
+                window.innerWidth <= 850 &&
+                navLinks.classList.contains("open") &&
+                !navLinks.contains(event.target) &&
+                !menuBtn.contains(event.target)
+            ) {
+                navLinks.classList.remove("open");
+
+                const icon = menuBtn.querySelector("i");
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            }
+        });
+
+
+        /* Close mobile drawer when the page outside it is tapped */
         document.addEventListener("click", function (event) {
             if (
                 window.innerWidth <= 850 &&
