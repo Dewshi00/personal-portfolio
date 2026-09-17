@@ -1268,7 +1268,7 @@
         }
 
         .error-message {
-            color: #d92d20;
+            color: #0d47a1;
             font-size: 11px;
             margin-top: 4px;
             display: none;
@@ -1681,34 +1681,1205 @@
 
         }
 
+    
+        /* =========================================================
+           SIDEBAR PORTFOLIO LAYOUT
+           Inspired by the reference layout: fixed left sidebar with
+           profile image, name, bio and icon navigation.
+        ========================================================== */
+
+        :root {
+            --sidebar-width: 290px;
+            --sidebar-bg: #151a21;
+            --sidebar-border: #2a313b;
+            --sidebar-text: #98a2b3;
+            --sidebar-active: #1976d2;
+        }
+
+        body {
+            background: #0b0f14;
+        }
+
+        header.sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            z-index: 2000;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--sidebar-border);
+            backdrop-filter: none;
+        }
+
+        .sidebar-inner {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 36px 26px 28px;
+        }
+
+        .sidebar-profile {
+            text-align: center;
+            margin-bottom: 34px;
+        }
+
+        .sidebar-photo-link {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .sidebar-profile-image {
+            width: 118px;
+            height: 118px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #2e3743;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+        }
+
+        .sidebar-name {
+            display: block;
+            color: #f8fafc;
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.25;
+        }
+
+        .sidebar-name span {
+            color: var(--sidebar-active);
+        }
+
+        .sidebar-bio {
+            max-width: 225px;
+            margin: 9px auto 0;
+            color: var(--sidebar-text);
+            font-size: 12px;
+            line-height: 1.65;
+        }
+
+        header.sidebar .nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 5px;
+            width: 100%;
+            flex: 1;
+        }
+
+        header.sidebar .nav-links a {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            min-height: 48px;
+            padding: 0 14px;
+            border-radius: 8px;
+            color: #98a2b3;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s ease;
+        }
+
+        header.sidebar .nav-links a::after {
+            display: none;
+        }
+
+        header.sidebar .nav-links a i {
+            width: 20px;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        header.sidebar .nav-links a:hover,
+        header.sidebar .nav-links a.active {
+            color: var(--sidebar-active);
+            background: rgba(25, 118, 210, 0.10);
+        }
+
+        header.sidebar .nav-links a.active::before {
+            content: "";
+            position: absolute;
+            left: -26px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 0 4px 4px 0;
+            background: var(--sidebar-active);
+        }
+
+        header.sidebar .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-top: 18px;
+            border-top: 1px solid var(--sidebar-border);
+        }
+
+        header.sidebar .theme-btn,
+        header.sidebar .menu-btn {
+            width: 42px;
+            height: 42px;
+            border: 1px solid #303844;
+            background: #1b2129;
+            color: #aab3c0;
+            border-radius: 10px;
+        }
+
+        header.sidebar .theme-btn:hover,
+        header.sidebar .menu-btn:hover {
+            background: var(--sidebar-active);
+            color: #fff;
+            border-color: var(--sidebar-active);
+        }
+
+        header.sidebar .menu-btn {
+            display: none;
+        }
+
+        /* Main content moves beside the sidebar */
+        body > section,
+        body > footer {
+            margin-left: var(--sidebar-width);
+        }
+
+        body > section {
+            width: calc(100% - var(--sidebar-width));
+        }
+
+        body > footer {
+            width: calc(100% - var(--sidebar-width));
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 90px;
+        }
+
+        .hero-grid {
+            grid-template-columns: 1fr;
+            max-width: 1180px;
+        }
+
+        .hero-visual {
+            display: none;
+        }
+
+        /* Keep the rest of the portfolio content clean and wide */
+        .container {
+            width: min(1180px, 88%);
+        }
+
+        .about-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .about-photo-wrap {
+            display: none;
+        }
+
+        /* Dark-mode compatibility */
+        body.dark {
+            background: #080b10;
+        }
+
+        body.dark header.sidebar {
+            background: #11161d;
+            border-color: #27303b;
+        }
+
+        body.dark .sidebar-name {
+            color: #f8fafc;
+        }
+
+        body.dark .sidebar-bio,
+        body.dark header.sidebar .nav-links a {
+            color: #98a2b3;
+        }
+
+        body.dark header.sidebar .nav-links a:hover,
+        body.dark header.sidebar .nav-links a.active {
+            color: var(--sidebar-active);
+            background: rgba(25, 118, 210, 0.10);
+        }
+
+        /* Mobile: convert the sidebar into a top navigation */
+        @media (max-width: 850px) {
+
+            header.sidebar {
+                width: 100%;
+                height: 72px;
+                border-right: none;
+                border-bottom: 1px solid var(--sidebar-border);
+            }
+
+            .sidebar-inner {
+                padding: 0 20px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .sidebar-profile {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                margin: 0;
+                gap: 11px;
+            }
+
+            .sidebar-photo-link {
+                margin: 0;
+            }
+
+            .sidebar-profile-image {
+                width: 44px;
+                height: 44px;
+                border-width: 2px;
+            }
+
+            .sidebar-name {
+                font-size: 15px;
+            }
+
+            .sidebar-bio {
+                display: none;
+            }
+
+            header.sidebar .nav-actions {
+                padding: 0;
+                border: none;
+                margin-left: auto;
+            }
+
+            header.sidebar .menu-btn {
+                display: flex;
+            }
+
+            header.sidebar .nav-links {
+                position: absolute;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                max-height: calc(100vh - 72px);
+                overflow-y: auto;
+                display: none;
+                flex-direction: column;
+                gap: 4px;
+                padding: 18px 20px;
+                background: var(--sidebar-bg);
+                border-bottom: 1px solid var(--sidebar-border);
+                box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+            }
+
+            header.sidebar .nav-links.open {
+                display: flex;
+            }
+
+            header.sidebar .nav-links a {
+                min-height: 46px;
+            }
+
+            header.sidebar .nav-links a.active::before {
+                left: -20px;
+            }
+
+            body > section,
+            body > footer {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .container {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header.sidebar {
+                height: 66px;
+            }
+
+            .sidebar-inner {
+                padding: 0 14px;
+            }
+
+            header.sidebar .nav-links {
+                top: 66px;
+                max-height: calc(100vh - 66px);
+            }
+
+            .sidebar-profile-image {
+                width: 40px;
+                height: 40px;
+            }
+
+            .sidebar-name {
+                font-size: 14px;
+            }
+
+            .hero {
+                padding-top: 105px;
+            }
+        }
+
+    
+        /* =========================================================
+           BALANCED HERO — compact spacing, less empty space
+        ========================================================== */
+
+        .hero {
+            min-height: calc(100vh - 20px);
+            padding-top: 72px;
+            padding-bottom: 55px;
+        }
+
+        .hero-grid {
+            width: min(1260px, 92%);
+            grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+            gap: 55px;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 820px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 5.2vw, 74px);
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(19px, 2vw, 25px);
+            margin-bottom: 11px;
+        }
+
+        .hero-description {
+            max-width: 790px;
+            font-size: 15px;
+            line-height: 1.65;
+            margin-bottom: 23px;
+        }
+
+        .hero-buttons {
+            gap: 10px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            gap: 8px;
+        }
+
+        /* Re-purpose the existing hero visual as a clean decorative panel */
+        .hero-visual {
+            display: flex;
+            min-height: 390px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            background: rgba(25, 118, 210, 0.10);
+            filter: blur(4px);
+        }
+
+        .hero-visual::after {
+            content: "BUILD  •  LEARN  •  CREATE";
+            position: absolute;
+            right: 8%;
+            bottom: 16%;
+            padding: 10px 15px;
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            border-radius: 999px;
+            color: #64748b;
+            background: rgba(15, 23, 42, 0.45);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            white-space: nowrap;
+        }
+
+        .hero-visual .hero-profile-card {
+            position: relative;
+            z-index: 2;
+            width: min(330px, 100%);
+            padding: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            border-radius: 24px;
+            background: rgba(17, 24, 39, 0.72);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.28);
+            backdrop-filter: blur(14px);
+        }
+
+        .hero-visual .hero-profile-image {
+            width: 100%;
+            height: 285px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 18px;
+        }
+
+        .hero-visual .hero-profile-badge {
+            margin-top: 14px;
+        }
+
+        .hero-visual .hero-profile-badge strong {
+            display: block;
+            color: #f8fafc;
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .hero-visual .hero-profile-badge span {
+            display: block;
+            margin-top: 4px;
+            color: #94a3b8;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        /* Keep About compact so the page doesn't feel stretched */
+        section {
+            padding: 82px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 42px;
+        }
+
+        /* Desktop: avoid excessive blank space at very wide resolutions */
+        @media (min-width: 1400px) {
+            .hero-grid {
+                width: min(1320px, 94%);
+                gap: 45px;
+            }
+
+            .hero-content {
+                max-width: 900px;
+            }
+        }
+
+        /* Tablet / mobile */
+        @media (max-width: 1000px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-content {
+                max-width: 900px;
+            }
+
+            .hero-visual {
+                min-height: auto;
+            }
+
+            .hero-visual::after {
+                right: 50%;
+                transform: translateX(50%);
+                bottom: 4%;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .hero {
+                padding-top: 105px;
+                padding-bottom: 45px;
+            }
+
+            .hero-grid {
+                width: 90%;
+            }
+
+            .hero-visual .hero-profile-card {
+                width: min(310px, 90%);
+            }
+
+            .hero-visual .hero-profile-image {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 68px 0;
+            }
+
+            .hero {
+                padding-top: 96px;
+            }
+
+            .hero h1 {
+                font-size: 46px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .hero-visual::before {
+                width: 260px;
+                height: 260px;
+            }
+
+            .hero-visual::after {
+                font-size: 8px;
+                letter-spacing: 1px;
+            }
+        }
+
+    
+        /* =========================================================
+           FINAL SIDEBAR + COMPACT HERO
+           Profile photo appears ONLY in the left sidebar.
+        ========================================================== */
+
+        :root {
+            --sidebar-width: 290px;
+        }
+
+        /* Keep the left navigation fixed and clean */
+        header.sidebar {
+            width: var(--sidebar-width);
+        }
+
+        /* Compact hero: no large empty vertical/right spaces */
+        .hero {
+            min-height: 348px;
+            height: 348px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            width: min(1180px, 88%);
+            max-width: 1180px;
+            gap: 0;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1000px;
+            animation: none;
+        }
+
+        .hero .eyebrow {
+            margin-bottom: 15px;
+            padding: 7px 12px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 5vw, 70px);
+            line-height: 1;
+            letter-spacing: -2.8px;
+            margin-bottom: 13px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(20px, 2vw, 26px);
+            line-height: 1.3;
+            margin-bottom: 11px;
+        }
+
+        .hero-description {
+            max-width: 820px;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 21px;
+        }
+
+        .hero-buttons {
+            gap: 10px;
+        }
+
+        .hero-buttons .btn {
+            padding: 12px 20px;
+        }
+
+        .social-links {
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Never show the profile photo anywhere in the main content */
+        .hero-visual,
+        .about-photo-wrap,
+        .hero-profile-card,
+        .hero-profile-image {
+            display: none !important;
+        }
+
+        /* About begins immediately after the compact hero */
+        section {
+            padding: 78px 0;
+        }
+
+        .about {
+            min-height: 455px;
+        }
+
+        .about-grid {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        /* Keep the sidebar photo as the single profile-photo location */
+        header.sidebar .sidebar-profile-image {
+            display: block !important;
+            width: 118px;
+            height: 118px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Keep main content aligned with the reference layout */
+        body > section,
+        body > footer {
+            margin-left: var(--sidebar-width);
+            width: calc(100% - var(--sidebar-width));
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .hero {
+                height: auto;
+                min-height: 470px;
+                padding: 105px 0 45px;
+            }
+
+            .hero-grid {
+                width: 90%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            body > section,
+            body > footer {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 520px;
+                padding: 96px 0 45px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+                letter-spacing: -2px;
+            }
+
+            .hero-subtitle {
+                font-size: 19px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .hero-buttons .btn {
+                width: auto;
+            }
+        }
+
+    
+        /* =========================================================
+           FINAL HERO BALANCE
+           Prevents the hero content from touching/crossing the
+           section boundary while keeping the layout compact.
+        ========================================================== */
+
+        .hero {
+            height: auto;
+            min-height: 480px;
+            padding: 52px 0 42px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            width: min(1120px, 88%);
+            max-width: 1120px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 930px;
+            margin: 0;
+        }
+
+        .hero .eyebrow {
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            margin-bottom: 12px;
+            font-size: clamp(48px, 5vw, 68px);
+            line-height: 1.02;
+        }
+
+        .hero-subtitle {
+            margin-bottom: 10px;
+            font-size: clamp(20px, 2vw, 25px);
+            line-height: 1.3;
+        }
+
+        .hero-description {
+            max-width: 900px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .hero-buttons {
+            gap: 10px;
+        }
+
+        .hero-buttons .btn {
+            padding: 12px 20px;
+        }
+
+        .social-links {
+            margin-top: 16px;
+            gap: 8px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Profile photo remains ONLY in the sidebar. */
+        .hero-visual,
+        .hero-profile-card,
+        .hero-profile-image,
+        .about-photo-wrap {
+            display: none !important;
+        }
+
+        /* Keep the next section visually connected to the hero. */
+        .about {
+            min-height: 0;
+        }
+
+        /* Large screens: use the available width without creating
+           excessive empty space. */
+        @media (min-width: 1200px) {
+            .hero-grid {
+                width: min(1120px, 90%);
+            }
+
+            .hero-content {
+                max-width: 980px;
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 850px) {
+            .hero {
+                min-height: 0;
+                padding: 105px 0 48px;
+            }
+
+            .hero-grid {
+                width: 90%;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 95px 0 42px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+                letter-spacing: -2px;
+            }
+
+            .hero-subtitle {
+                font-size: 19px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .hero-buttons .btn {
+                width: auto;
+            }
+        }
+
+        /* =========================================================
+           FINAL HERO SPACING — TIGHT & BALANCED
+           Removes unnecessary empty space after the opportunity badge
+           was removed, while keeping the hero clean and proportional.
+        ========================================================== */
+
+        .hero {
+            min-height: 0;
+            height: auto;
+            padding: 70px 0 38px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            width: min(1180px, 92%);
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0;
+        }
+
+        .hero h1 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .hero-subtitle {
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+
+        .hero-description {
+            max-width: 1050px;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            gap: 10px;
+        }
+
+        .social-links {
+            margin-top: 14px;
+            gap: 8px;
+        }
+
+        @media (min-width: 1200px) {
+            .hero {
+                padding-top: 72px;
+                padding-bottom: 38px;
+            }
+
+            .hero-grid {
+                width: min(1200px, 92%);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .hero {
+                padding: 105px 0 42px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 92px 0 38px;
+            }
+
+            .hero h1 {
+                margin-bottom: 9px;
+            }
+
+            .hero-subtitle {
+                margin-bottom: 8px;
+            }
+
+            .hero-description {
+                margin-bottom: 17px;
+            }
+
+            .social-links {
+                margin-top: 13px;
+            }
+        }
+
+    
+        /* =========================================================
+           FINAL ABOUT SECTION BALANCE
+           Tighter vertical rhythm and reduced unused space.
+        ========================================================== */
+
+        .about {
+            padding-top: 62px;
+            padding-bottom: 62px;
+        }
+
+        .about .section-heading {
+            margin-bottom: 26px;
+        }
+
+        .about .section-heading .tag {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .about .section-heading h2 {
+            margin: 4px 0 10px;
+            line-height: 1.1;
+        }
+
+        .about .section-heading p {
+            max-width: 780px;
+            line-height: 1.55;
+        }
+
+        .about-grid {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            max-width: 100%;
+        }
+
+        .about-content h3 {
+            font-size: clamp(27px, 3vw, 36px);
+            line-height: 1.15;
+            margin-bottom: 13px;
+        }
+
+        .about-content p {
+            margin-bottom: 12px;
+            line-height: 1.55;
+        }
+
+        .about-info {
+            margin-top: 18px;
+            gap: 12px;
+        }
+
+        .info-item {
+            padding: 13px 16px;
+        }
+
+        .info-item span {
+            margin-bottom: 3px;
+        }
+
+        /* Keep the section compact on smaller screens too */
+        @media (max-width: 850px) {
+            .about {
+                padding-top: 55px;
+                padding-bottom: 55px;
+            }
+
+            .about .section-heading {
+                margin-bottom: 24px;
+            }
+
+            .about-content h3 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .about {
+                padding-top: 48px;
+                padding-bottom: 48px;
+            }
+
+            .about .section-heading {
+                margin-bottom: 20px;
+            }
+
+            .about .section-heading h2 {
+                font-size: 34px;
+            }
+
+            .about-content h3 {
+                font-size: 25px;
+            }
+
+            .about-content p {
+                margin-bottom: 10px;
+            }
+
+            .about-info {
+                margin-top: 15px;
+                gap: 10px;
+            }
+
+            .info-item {
+                padding: 12px 14px;
+            }
+        }
+
+
+        /* Formspree sending state */
+        .contact-form button[type="submit"]:disabled {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
     </style>
+
+<style id="final-blue-sidebar-theme">
+/* =========================================================
+   FINAL BLUE SIDEBAR THEME
+   Uses the same blue palette as the main portfolio:
+   Primary: #1976D2
+   Dark:    #0D47A1
+   ========================================================= */
+
+:root {
+    --sidebar-active: #1976d2;
+}
+
+header.sidebar .sidebar-name span {
+    color: #1976d2 !important;
+}
+
+header.sidebar .nav-links a:hover,
+header.sidebar .nav-links a.active {
+    color: #1976d2 !important;
+    background: rgba(25, 118, 210, 0.10) !important;
+}
+
+header.sidebar .nav-links a.active::before {
+    background: #1976d2 !important;
+}
+
+header.sidebar .theme-btn:hover,
+header.sidebar .menu-btn:hover {
+    background: #1976d2 !important;
+    border-color: #1976d2 !important;
+}
+
+header.sidebar .nav-links a i {
+    color: inherit;
+}
+
+header.sidebar .nav-links a.active i {
+    color: #1976d2 !important;
+}
+</style>
+
 </head>
 
 
-<body>
+<body class="dark">
 
     <!-- =========================================================
          NAVBAR
     ========================================================== -->
 
-    <header>
+    <header class="sidebar">
 
-        <div class="container navbar">
+        <div class="sidebar-inner">
 
-            <a href="#home" class="logo">
-                Dewshi <span>Ironika</span>
-            </a>
+            <div class="sidebar-profile">
 
-            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="sidebar-photo-link" aria-label="Go to Home">
+                    <img
+                        src="https://res.cloudinary.com/xj161153/image/upload/f_auto,q_auto/profile"
+                        alt="Dewshi Ironika"
+                        class="sidebar-profile-image">
+                </a>
 
-                <a href="#home" class="active">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-                <a href="#courses">Courses</a>
-                <a href="#feedback">Feedback</a>
-                <a href="#contact">Contact</a>
+                <a href="#home" class="sidebar-name">
+                    Dewshi <span>Ironika</span>
+                </a>
+
+                <p class="sidebar-bio">
+                    Business Information Systems undergraduate passionate about
+                    technology, web development and data analytics.
+                </p>
+
+            </div>
+
+            <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+
+                <a href="#home" class="active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+
+                <a href="#about">
+                    <i class="fa-regular fa-user"></i>
+                    <span>About</span>
+                </a>
+
+                <a href="#skills">
+                    <i class="fa-solid fa-code"></i>
+                    <span>Skills</span>
+                </a>
+
+                <a href="#projects">
+                    <i class="fa-regular fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+
+                <a href="#education">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Education</span>
+                </a>
+
+                <a href="#courses">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Courses</span>
+                </a>
+
+                <a href="#feedback">
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <span>Feedback</span>
+                </a>
+
+                <a href="#contact">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
 
             </nav>
 
@@ -1717,17 +2888,13 @@
                 <button class="theme-btn"
                         id="themeBtn"
                         aria-label="Toggle dark mode">
-
                     <i class="fa-solid fa-moon"></i>
-
                 </button>
 
                 <button class="menu-btn"
                         id="menuBtn"
                         aria-label="Open navigation menu">
-
                     <i class="fa-solid fa-bars"></i>
-
                 </button>
 
             </div>
@@ -1746,12 +2913,7 @@
         <div class="container hero-grid">
 
             <div class="hero-content">
-
-                <span class="eyebrow">
-                    Available for opportunities
-                </span>
-
-                <h1>
+<h1>
                     Dewshi <span>Ironika</span>
                 </h1>
 
@@ -1819,29 +2981,6 @@
 
             </div>
 
-
-            <!-- Personal Profile Visual -->
-
-            <div class="hero-visual">
-
-                <div class="hero-profile-card">
-
-                    <img
-    src="https://res.cloudinary.com/xj161153/image/upload/f_auto,q_auto/profile"
-    alt="Professional portrait of Dewshi Ironika"
-    class="hero-profile-image">
-
-                    <div class="hero-profile-badge">
-
-                        <strong>BSc (Hons) Business Information Systems</strong>
-
-                        <span>ICBT Campus • Web Development • Data Analytics</span>
-
-                    </div>
-
-                </div>
-
-            </div>
 
         </div>
 
@@ -2879,17 +4018,18 @@
 
                 <form class="contact-form reveal"
                       id="contactForm"
+                      action="https://formspree.io/f/xgavealz"
+                      method="POST"
                       novalidate>
 
                     <div class="success-message"
                          id="successMessage">
 
-                        Your message has been validated successfully.
+                        Your message has been sent successfully.
 
                         <br>
 
-                        Note: This demo form does not send emails
-                        because no backend/email service is connected.
+                        Thank you for getting in touch. I will get back to you soon.
 
                     </div>
 
@@ -2905,7 +4045,9 @@
 
                             <input type="text"
                                    id="name"
-                                   placeholder="Your name">
+                                   name="name"
+                                   placeholder="Your name"
+                                   required>
 
                             <div class="error-message"
                                  id="nameError">
@@ -2925,7 +4067,9 @@
 
                             <input type="email"
                                    id="email"
-                                   placeholder="your@email.com">
+                                   name="email"
+                                   placeholder="your@email.com"
+                                   required>
 
                             <div class="error-message"
                                  id="emailError">
@@ -2947,7 +4091,9 @@
 
                         <input type="text"
                                id="subject"
-                               placeholder="Subject">
+                               name="subject"
+                               placeholder="Subject"
+                               required>
 
                         <div class="error-message"
                              id="subjectError">
@@ -2966,7 +4112,9 @@
                         </label>
 
                         <textarea id="message"
-                                  placeholder="Write your message..."></textarea>
+                                  name="message"
+                                  placeholder="Write your message..."
+                                  required></textarea>
 
                         <div class="error-message"
                              id="messageError">
@@ -3341,12 +4489,11 @@
             document.getElementById("successMessage");
 
 
-        contactForm.addEventListener("submit", function(event) {
+        contactForm.addEventListener("submit", async function(event) {
 
             event.preventDefault();
 
             let valid = true;
-
 
             const name =
                 document.getElementById("name");
@@ -3360,7 +4507,6 @@
             const message =
                 document.getElementById("message");
 
-
             const nameError =
                 document.getElementById("nameError");
 
@@ -3373,84 +4519,112 @@
             const messageError =
                 document.getElementById("messageError");
 
-
             /* Hide old errors */
-
             document
                 .querySelectorAll(".error-message")
                 .forEach(function(error) {
-
                     error.style.display = "none";
-
                 });
-
 
             successMessage.style.display = "none";
 
-
             /* Name */
-
             if (name.value.trim() === "") {
-
                 nameError.style.display = "block";
-
                 valid = false;
-
             }
 
-
             /* Email */
-
             const emailPattern =
                 /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 
             if (
                 email.value.trim() === "" ||
                 !emailPattern.test(email.value.trim())
             ) {
-
                 emailError.style.display = "block";
-
                 valid = false;
-
             }
-
 
             /* Subject */
-
             if (subject.value.trim() === "") {
-
                 subjectError.style.display = "block";
-
                 valid = false;
-
             }
-
 
             /* Message */
-
             if (message.value.trim() === "") {
-
                 messageError.style.display = "block";
-
                 valid = false;
-
             }
 
+            if (!valid) {
+                return;
+            }
 
-            /* Success */
+            /* Prevent duplicate submissions while sending */
+            const submitButton =
+                contactForm.querySelector('button[type="submit"]');
 
-            if (valid) {
+            const originalButtonHTML =
+                submitButton.innerHTML;
+
+            submitButton.disabled = true;
+            submitButton.innerHTML =
+                'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+
+            try {
+
+                const formData =
+                    new FormData(contactForm);
+
+                /* Use the visitor's subject as the email subject */
+                formData.set("_subject", subject.value.trim());
+
+                const response =
+                    await fetch(contactForm.action, {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    });
+
+                if (response.ok) {
+
+                    successMessage.textContent =
+                        "Your message has been sent successfully. Thank you for getting in touch. I will get back to you soon.";
+
+                    successMessage.style.display = "block";
+
+                    contactForm.reset();
+
+                    successMessage.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                } else {
+
+                    throw new Error("Form submission failed.");
+
+                }
+
+            } catch (error) {
+
+                successMessage.textContent =
+                    "Sorry, your message could not be sent. Please try again or contact me directly by email.";
 
                 successMessage.style.display = "block";
 
-                contactForm.reset();
+            } finally {
+
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonHTML;
 
             }
 
         });
-
 
         /* =========================================================
            SCROLL TO TOP
